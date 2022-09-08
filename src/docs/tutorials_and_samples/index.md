@@ -63,7 +63,7 @@ The device updates originate from a *device gateway*, which is implemented using
 ### Demonstrates
 
 * How to use Orleans to build an [Internet of Things](https://en.wikipedia.org/wiki/Internet_of_Things) application
-* How Orleans can be co-hosted and integrated with [ASP.NET Core SignalR](https://docs.microsoft.com/aspnet/core/signalr/introduction)
+* How Orleans can be co-hosted and integrated with [ASP.NET Core SignalR](/aspnet/core/signalr/introduction)
 * How to broadcast real-time updates from a grain to a set of clients using Orleans and SignalR
 
 ## [HanBaoBao](https://github.com/ReubenBond/hanbaobao-web)
@@ -120,7 +120,7 @@ A Web-based [Tic-tac-toe](https://en.wikipedia.org/wiki/Tic-tac-toe) game using 
 </p>
 
 A Web application for voting on a set of choices. This sample demonstrates deployment to Kubernetes.
-The application uses [.NET Generic Host](https://docs.microsoft.com/dotnet/core/extensions/generic-host) to co-host [ASP.NET Core](https://docs.microsoft.com/aspnet/core) and Orleans as well as the [Orleans Dashboard](https://github.com/OrleansContrib/OrleansDashboard) together in the same process.
+The application uses [.NET Generic Host](/dotnet/core/extensions/generic-host) to co-host [ASP.NET Core](/aspnet/core) and Orleans as well as the [Orleans Dashboard](https://github.com/OrleansContrib/OrleansDashboard) together in the same process.
 
 <p align="center">
     <img src="https://raw.githubusercontent.com/dotnet/orleans/main/samples/Voting/dashboard.png?sanitize=true"/>
@@ -163,8 +163,8 @@ Simulates bank accounts, using ACID transactions to transfer random amounts betw
 </p>
 
 These two Blazor samples are based on the [Blazor introductory tutorials](https://dotnet.microsoft.com/learn/aspnet/blazor-tutorial/intro), adapted for use with Orleans.
-The [Blazor WebAssembly](https://github.com/dotnet/orleans/raw/main/samples/Blazor/BlazorWasm/#readme) sample uses the [Blazor WebAssembly hosting model](https://docs.microsoft.com/aspnet/core/blazor/hosting-models#blazor-webassembly).
-The [Blazor Server](https://github.com/dotnet/orleans/raw/main/samples/Blazor/BlazorServer/#readme) sample uses the [Blazor Server hosting model](https://docs.microsoft.com/aspnet/core/blazor/hosting-models#blazor-server).
+The [Blazor WebAssembly](https://github.com/dotnet/orleans/raw/main/samples/Blazor/BlazorWasm/#readme) sample uses the [Blazor WebAssembly hosting model](/aspnet/core/blazor/hosting-models#blazor-webassembly).
+The [Blazor Server](https://github.com/dotnet/orleans/raw/main/samples/Blazor/BlazorServer/#readme) sample uses the [Blazor Server hosting model](/aspnet/core/blazor/hosting-models#blazor-server).
 They include an interactive counter, a TODO list, and a Weather service.
 
 ### Demonstrates
@@ -179,11 +179,11 @@ They include an interactive counter, a TODO list, and a Weather service.
 </p>
 
 A stock price application which fetches prices from a remote service using an HTTP call and caches prices temporarily in a grain.
-A [`BackgroundService`](https://docs.microsoft.com/aspnet/core/fundamentals/host/hosted-services#backgroundservice-base-class) periodically polls for updates stock prices from various `StockGrain` grains which correspond to a set of stock symbols.
+A [`BackgroundService`](/aspnet/core/fundamentals/host/hosted-services#backgroundservice-base-class) periodically polls for updates stock prices from various `StockGrain` grains which correspond to a set of stock symbols.
 
 ### Demonstrates
 
-* How to use Orleans from within a [`BackgroundService`](https://docs.microsoft.com/aspnet/core/fundamentals/host/hosted-services#backgroundservice-base-class).
+* How to use Orleans from within a [`BackgroundService`](/aspnet/core/fundamentals/host/hosted-services#backgroundservice-base-class).
 * How to use timers within a grain
 * How to make external service calls using .NET's `HttpClient` and cache the results within a grain.
 

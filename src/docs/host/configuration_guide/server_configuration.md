@@ -8,7 +8,7 @@ title: Server Configuration
 # Server Configuration
 
 A silo is configured programmatically via `SiloHostBuilder` and a number of supplemental option classes.
-Option classes in Orleans follow the [ASP.NET Options](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/configuration/options) pattern, and can be loaded via files, environment variables, etc.
+Option classes in Orleans follow the [ASP.NET Options](/aspnet/core/fundamentals/configuration/options) pattern, and can be loaded via files, environment variables, etc.
 
 There are several key aspects of silo configuration:
 

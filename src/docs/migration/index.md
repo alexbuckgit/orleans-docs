@@ -39,7 +39,7 @@ We plan to update this package less frequently.
 
 This means that each grain activation gets its own scoped service provider, and Orleans registers a contextual `IGrainActivationContext` object that can be injected into a *Transient* or *Scoped* service to get access to activation specific information and grain activation lifecycle events.
 This is similar to how ASP.NET Core 2.0 creates a scoped context for each Request, but in the case of Orleans, it applies to the entire lifetime of a grain activation.
-See [Service Lifetimes and Registration Options](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/dependency-injection#service-lifetimes-and-registration-options) in the ASP.NET Core documentation for more information about service lifetimes.
+See [Service Lifetimes and Registration Options](/aspnet/core/fundamentals/dependency-injection#service-lifetimes-and-registration-options) in the ASP.NET Core documentation for more information about service lifetimes.
 
 * Migrated the logging infrastructure to use `Microsoft.Extensions.Logging` (same abstractions as ASP.NET Core 2.0).
 

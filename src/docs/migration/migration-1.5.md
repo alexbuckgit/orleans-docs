@@ -8,7 +8,7 @@ The bulk of the Orleans APIs stayed unchanged in 2.0 or implementation of those 
 
 ## Visual Studio and Tooling requirements
 Orleans 2.0.0 is built on top of .NET Standard 2.0. Because of that, you need to upgrade development tools to ensure yourself a pleasant developing experience. We recommend to use Visual Studio 2017 or above to develop Orleans 2.0.0 applications. Based on our experience, version 15.5.2 and above works best. 
-.NET Standard 2.0.0 is compatible with .NET 4.6.1 and above, .NET Core 2.0, and a list of other frameworks. Orleans 2.0.0 inherited that compatibility. For more information on .NET Standard compatibility with other framework, please refer to [.NET Standard documentation](https://docs.microsoft.com/en-us/dotnet/standard/net-standard) : 
+.NET Standard 2.0.0 is compatible with .NET 4.6.1 and above, .NET Core 2.0, and a list of other frameworks. Orleans 2.0.0 inherited that compatibility. For more information on .NET Standard compatibility with other framework, please refer to [.NET Standard documentation](/dotnet/standard/net-standard) :
 If you are developing a .NET Core or .NET application using Orleans, you will need to follow certain steps to set up your environment, such as installing .NET Core SDK. For more information, please refer to their [documentation](https://dotnet.github.io/).
 
 ## Available options for configuration code
@@ -102,7 +102,7 @@ Orleans 2.0 uses the same logging abstractions as ASP.NET Core 2.0. You can find
 
 In 1.5, logging configuration is done through `ClientConfiguration` and `NodeConfiguration`. You can configure `DefaultTraceLevel`, `TraceFileName`, `TraceFilePattern`, `TraceLevelOverrides`, `TraceToConsole`, `BulkMessageLimit`, `LogConsumers`, etc through it. In 2.0, logging configuration is consistent with ASP.NET Core 2.0 logging, which means most of the configuration is done through `Microsoft.Extensions.Logging.ILoggingBuilder`. 
 
-To configure `DefaultTraceLevel` and `TraceLevelOverrides`, you need to apply [log filtering](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/logging) to `ILoggingBuilder`. For example, to set trace level to 'Debug' on orleans runtime, you can use sample below, 
+To configure `DefaultTraceLevel` and `TraceLevelOverrides`, you need to apply [log filtering](/aspnet/core/fundamentals/logging) to `ILoggingBuilder`. For example, to set trace level to 'Debug' on orleans runtime, you can use sample below:
 ```
 siloBuilder.AddLogging(builder=>builder.AddFilter("Orleans", LogLevel.Debug));
 ```
@@ -110,7 +110,7 @@ You can configure log level for you application code in the same way. If you wan
 ```
 siloBuilder.AddLogging(builder=>builder.SetMinimumLevel(LogLevel.Debug);
 ```
-For more information on log filtering, please see their docs on https://docs.microsoft.com/en-us/aspnet/core/fundamentals/logging;
+For more information on log filtering, please see their docs on [Logging in .NET Core and ASP.NET Core](/aspnet/core/fundamentals/logging);
 
 To configure TraceToConsole to be `true`, you need to reference `Microsoft.Extensions.Logging.Console` package and then use `AddConsole()` extension method on `ILoggingBuilder`. The same with `TraceFileName` and `TraceFilePattern`, if you want to log messages to a file, you need to use `AddFile("file name")` method on `ILoggingBuilder`.
 
@@ -124,9 +124,11 @@ Since we are going to eventually deprecate and remove LogConsumer feature suppor
  of `ILoggerProvider` on nuget which provides identical or similar functionality, or implement your own `ILoggerProvider` which fits your specfic logging requirement. And configure those `ILoggerProvider`s with `ILoggingBuilder`.
  
 But if you cannot migrate off log consumer in the short term, you can still use it. The support for `ILogConsumer` lives in `Microsoft.Orleans.Logging.Legacy` package. So you need to add dependency on that package first, and then configure Log consumers through extension method `AddLegacyOrleansLogging` on `ILoggingBuilder`.
-There's native `AddLogging` method on `IServiceCollection` provided by ASP.NET for you to configure [`ILoggingBuilder`](https://docs.microsoft.com/en-us/dotnet/api/microsoft.extensions.dependencyinjection.loggingservicecollectionextensions.addlogging?view=aspnetcore-2.0#Microsoft_Extensions_DependencyInjection_LoggingServiceCollectionExtensions_AddLogging_Microsoft_Extensions_DependencyInjection_IServiceCollection_System_Action_Microsoft_Extensions_Logging_ILoggingBuilder). We also wrap that method under extension method on `ISiloHostBuilder` and `IClientBuilder`. So you can call `AddLogging` method on silo builder and client builder as well to configure `ILoggingBuilder`. 
-below is an example:
-```
+There's a native `AddLogging` method on `IServiceCollection` provided by ASP.NET for you to configure [`ILoggingBuilder`](/dotnet/api/microsoft.extensions.dependencyinjection.loggingservicecollectionextensions.addlogging?view=aspnetcore-2.0#Microsoft_Extensions_DependencyInjection_LoggingServiceCollectionExtensions_AddLogging_Microsoft_Extensions_DependencyInjection_IServiceCollection_System_Action_Microsoft_Extensions_Logging_ILoggingBuilder). We also wrap that method under extension method on `ISiloHostBuilder` and `IClientBuilder`. So you can call `AddLogging` method on silo builder and client builder as well to configure `ILoggingBuilder`.
+
+Here is an example:
+
+```cpp
             var severityOverrides = new OrleansLoggerSeverityOverrides();
             severityOverrides.LoggerSeverityOverrides.Add(typeof(MyType).FullName, Severity.Warning);
             siloBuilder.AddLogging(builder => builder.AddLegacyOrleansLogging(new List<ILogConsumer>()
