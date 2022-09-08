@@ -1,6 +1,6 @@
 # Orleans documentation is now a part of [dotnet/docs](https://github.com/dotnet/docs/tree/main/docs/orleans)
 
-Documentation is published on [docs.microsoft.com/dotnet/orleans](https://docs.microsoft.com/dotnet/orleans/)
+This content is published at [Microsoft Orleans documentation](https://docs.microsoft.com/dotnet/orleans/)
 
 ⚠ Please use the [dotnet/docs](https://github.com/dotnet/docs/tree/main/docs/orleans) repository to make documentation updates.
 

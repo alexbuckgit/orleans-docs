@@ -4,10 +4,10 @@ title: External Tasks and Grains
 
 # External Tasks and Grains
 
-By design, any sub-Tasks spawned from grain code (for example, by using `await` or `ContinueWith` or `Task.Factory.StartNew`) will be dispatched on the same per-activation [TaskScheduler](https://docs.microsoft.com/dotnet/api/system.threading.tasks.taskscheduler) as the parent task and therefore inherit the same *single-threaded execution model* as the rest of grain code.
+By design, any sub-Tasks spawned from grain code (for example, by using `await` or `ContinueWith` or `Task.Factory.StartNew`) will be dispatched on the same per-activation [TaskScheduler](/dotnet/api/system.threading.tasks.taskscheduler) as the parent task and therefore inherit the same *single-threaded execution model* as the rest of grain code.
 This is the main point behind single threaded execution of grain turn based concurrency.
 
-In some cases grain code might need to “break out” of the Orleans task scheduling model and “do something special”, such as explicitly pointing a `Task` to a different task scheduler or the .NET [`ThreadPool`](https://docs.microsoft.com/dotnet/api/system.threading.threadpool).
+In some cases grain code might need to “break out” of the Orleans task scheduling model and “do something special”, such as explicitly pointing a `Task` to a different task scheduler or the .NET [`ThreadPool`](/dotnet/api/system.threading.threadpool).
 An example of such cases is when grain code has to execute a synchronous remote blocking call (such as remote IO).
 Executing that blocking call in the grain context will block the grain and thus should never be made.
 Instead, the grain code can execute this piece of blocking code on the thread pool thread and join (`await`) the completion of that execution and proceed in the grain context.

@@ -55,7 +55,7 @@ Strategies usually have parameters which have to be decided at the application l
 For example, if no other processes depend on an action, then you might decide to retry that action a maximum of 5 times per minute until it eventually completes. But you would have to process a user's Login grain request before processing any other requests from that user.
 If the login action is not working, then you cannot continue.
 
-There is a guide [in the Azure documentation](https://docs.microsoft.com/en-us/azure/architecture/patterns/) about good patterns and practices for the cloud which applies to Orleans as well, in most cases.
+There is a guide [in the Azure documentation](/azure/architecture/patterns/) about good patterns and practices for the cloud which applies to Orleans as well, in most cases.
 
 ## A fairly complex example
 

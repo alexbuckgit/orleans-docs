@@ -120,7 +120,7 @@ await friend.Subscribe(obj);
 Now whenever our grain on the server calls the `SendUpdateMessage` method, all subscribed clients will receive the message.
 In our client code, the `Chat` instance in variable `c` will receive the message and output it to the console.
 
-**Note:** Objects passed to `CreateObjectReference` are held via a [`WeakReference<T>`](https://docs.microsoft.com/dotnet/api/system.weakreference) and will therefore be garbage collected if no other references exist.
+**Note:** Objects passed to `CreateObjectReference` are held via a [`WeakReference<T>`](/dotnet/api/system.weakreference) and will therefore be garbage collected if no other references exist.
 Users should maintain a reference for each observer which they do not want to be collected.
 
 **Note:** Observers are inherently unreliable, since you don't get any response back to know if the message is received and processed or simply failed due to any condition which might arise in a distributed system.

@@ -35,7 +35,7 @@ builder.ConfigureApplicationParts(
 ```
 
 In the foregoing example, `builder` may be an instance of either `ISiloHostBuilder` or `IClientBuilder`.
-An optional [`ILoggerFactory`](https://docs.microsoft.com/en-us/dotnet/api/microsoft.extensions.logging.iloggerfactory) instance can be passed to `WithCodeGeneration` to enable logging during code generation, for example:
+An optional [`ILoggerFactory`](/dotnet/api/microsoft.extensions.logging.iloggerfactory) instance can be passed to `WithCodeGeneration` to enable logging during code generation, for example:
 
 ``` csharp
 ILoggerFactory codeGenLoggerFactory = new LoggerFactory();

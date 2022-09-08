@@ -10,7 +10,7 @@ Setting up the connection strings is done as explained in [Orleans Configuration
 
 To make Orleans code function with a given relational database backend, the following is required:
 
-1. The appropriate ADO.NET library must be loaded into the process. This should be defined as usual, e.g. via the [DbProviderFactories](https://docs.microsoft.com/en-us/dotnet/framework/data/adonet/obtaining-a-dbproviderfactory) element in the application configuration.
+1. The appropriate ADO.NET library must be loaded into the process. This should be defined as usual, e.g. via the [DbProviderFactories](/dotnet/framework/data/adonet/obtaining-a-dbproviderfactory) element in the application configuration.
 2. Configure the ADO.NET invariant via the `Invariant` property in the options.
 3. The database needs to exist and be compatible with the code. This is done by running a vendor-specific database creation script. For more information, see [ADO.NET Configuration](~/docs/host/configuration_guide/adonet_configuration.md).
 
@@ -133,7 +133,7 @@ Currently, there is no method to expose the serialization picker to the Orleans 
 
 ### 1. Allow the use of any backend that has an ADO.NET provider
 
-This should cover the broadest possible set of backends available for .NET, which is a factor in on-premises installations. Some providers are listed at [ADO.NET Data Providers MSDN page](https://docs.microsoft.com/en-us/dotnet/framework/data/adonet/ado-net-overview),
+This should cover the broadest possible set of backends available for .NET, which is a factor in on-premises installations. Some providers are listed at [.NET Framework Data Providers](/dotnet/framework/data/adonet/ado-net-overview),
 but not all are listed, such as [Teradata](https://downloads.teradata.com/download/connectivity/net-data-provider-for-teradata).
 
 ### 2. Maintain the potential to tune queries and database structure as appropriate, even while a deployment is running
@@ -147,14 +147,13 @@ database deployment parameters. Altering *standard components*, such as Orleans 
 
 Vendors have implemented different extensions and features within their products. It is sensible to make use of these features when they are available.
 These are features such as [native UPSERT](https://www.postgresql.org/about/news/1636/) or [PipelineDB](https://www.pipelinedb.com/) in PostgreSQL,
-[PolyBase](https://docs.microsoft.com/en-us/sql/relational-databases/polybase/get-started-with-polybase) or [natively compiled tables and stored procedures](https://docs.microsoft.com/en-us/sql/relational-databases/in-memory-oltp/native-compilation-of-tables-and-stored-procedures) in SQL Server
-&ndash; and myriads of other features.
+[PolyBase](/sql/relational-databases/polybase/get-started-with-polybase) or [natively compiled tables and stored procedures](/sql/relational-databases/in-memory-oltp/native-compilation-of-tables-and-stored-procedures) in SQL Server, and myriads of other features.
 
 ### 4. Make it possible to optimize hardware resources
 
 When designing an application, it is often possible to anticipate which data needs to be inserted faster than other data, and
 which data could more likely be put into *cold storage*, which is cheaper (e.g. splitting data between SSD and HDD). Additional considerations include the physical location of the data (some data could be more expensive (e.g. SSD RAID viz HDD RAID), or more secured),
-or some other decision basis. Related to *point 3.*, some databases offer special partitioning schemes, such as SQL Server [Partitioned Tables and Indexes](https://docs.microsoft.com/en-us/sql/relational-databases/partitions/partitioned-tables-and-indexes).
+or some other decision basis. Related to *point 3.*, some databases offer special partitioning schemes, such as SQL Server [Partitioned Tables and Indexes](/sql/relational-databases/partitions/partitioned-tables-and-indexes).
 
 These principles apply throughout the application life-cycle. Considering that one of the principles of Orleans itself is high availability,
 it should be possible to adjust the storage system without interruption to the Orleans deployment, or it should be possible to adjust the queries according
@@ -164,7 +163,7 @@ to data and other application parameters. An example of dynamic changes may be s
 
 ### 5. No assumptions on what tools, libraries, or deployment processes are used in organizations
 
-Many organizations have familiarity with a certain set of database tools, examples being [Dacpac](https://docs.microsoft.com/en-us/sql/relational-databases/data-tier-applications/data-tier-applications)
+Many organizations have familiarity with a certain set of database tools, examples being [Dacpac](/sql/relational-databases/data-tier-applications/data-tier-applications)
 or [Red Gate](https://www.red-gate.com/). It may be that deploying a database requires either a permission or a person, such as someone
 in a DBA role, to do it. Usually this means also having the target database layout and a rough sketch of the queries the application will
 produce for use in estimating the load. There might be processes, perhaps influenced by industry standards, which mandate script-based deployment.
@@ -220,10 +219,10 @@ These principles are also [included in the database scripts](~/docs/host/configu
 ## Some ideas on applying customized scripts
 
 1. Alter scripts in `OrleansQuery` for grain persistence with `IF ELSE`
-   so that some state is saved using the default `INSERT`, while some grain states may use [memory optimized tables](https://docs.microsoft.com/en-us/sql/relational-databases/in-memory-oltp/memory-optimized-tables).
+   so that some state is saved using the default `INSERT`, while some grain states may use [memory optimized tables](/sql/relational-databases/in-memory-oltp/memory-optimized-tables).
    The `SELECT` queries need to be altered accordingly.
 2. The idea in `1.` can be used to take advantage of other deployment- or vendor-specific aspects, such as splitting data between `SSD` or `HDD`, putting some data in encrypted tables,
-   or perhaps inserting statistics data via SQL-Server-to-Hadoop, or even [linked servers](https://docs.microsoft.com/en-us/sql/relational-databases/linked-servers/linked-servers-database-engine).
+   or perhaps inserting statistics data via SQL-Server-to-Hadoop, or even [linked servers](/sql/relational-databases/linked-servers/linked-servers-database-engine).
 
 The altered scripts can be tested by running the Orleans test suite, or straight in the database using, for instance, [SQL Server Unit Test Project](https://msdn.microsoft.com/en-us/library/jj851212.aspx).
 

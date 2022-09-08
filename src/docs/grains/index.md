@@ -164,7 +164,7 @@ From Orleans Client code.
 
 ### Grain Method Invocation
 
-The Orleans programming model is based on [Asynchronous Programming](https://docs.microsoft.com/en-us/dotnet/csharp/async).
+The Orleans programming model is based on [Asynchronous Programming](/dotnet/csharp/async).
 
 Using the grain reference from the previous example, here's how to perform a grain method invocation:
 

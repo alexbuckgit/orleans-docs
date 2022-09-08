@@ -14,7 +14,7 @@ Install the [`Microsoft.Orleans.Persistence.AzureStorage`](https://www.nuget.org
 
 ### Azure Table Storage
 
-The Azure Table Storage provider stores state in a table row, splitting the state over multiple columns if the limits of a single column are exceeded. Each row can hold a maximum length of one megabyte, as [imposed by Azure Table Storage](https://docs.microsoft.com/en-us/azure/storage/common/storage-scalability-targets#azure-table-storage-scale-targets).
+The Azure Table Storage provider stores state in a table row, splitting the state over multiple columns if the limits of a single column are exceeded. Each row can hold a maximum length of one megabyte, as [imposed by Azure Table Storage](/azure/storage/common/storage-scalability-targets#azure-table-storage-scale-targets).
 
 Configure the Azure Table Storage grain persistence provider using the `ISiloBuilder.AddAzureTableGrainStorage` extension methods.
 

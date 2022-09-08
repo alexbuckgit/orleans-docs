@@ -34,7 +34,7 @@ To elaborate, the abovementioned detractors are minimal in practice for the foll
 
 ### Obtaining a client from a host
 
-If hosting using the [.NET Generic Host](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/host/generic-host), the client will be available in the host's [dependency injection](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/dependency-injection) container automatically and can be injected into services such as [ASP.NET controllers](https://docs.microsoft.com/en-us/aspnet/core/mvc/controllers/actions) or [`IHostedService`](https://docs.microsoft.com/en-us/dotnet/api/microsoft.extensions.hosting.ihostedservice) implementations.
+If hosting using the [.NET Generic Host](/aspnet/core/fundamentals/host/generic-host), the client will be available in the host's [dependency injection](/aspnet/core/fundamentals/dependency-injection) container automatically and can be injected into services such as [ASP.NET controllers](/aspnet/core/mvc/controllers/actions) or [`IHostedService`](/dotnet/api/microsoft.extensions.hosting.ihostedservice) implementations.
 
 Alternatively, a client interface such as `IGrainFactory` or `IClusterClient` can be obtained from either `IHost` or `ISiloHost`:
 
